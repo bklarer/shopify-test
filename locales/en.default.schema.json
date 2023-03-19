@@ -2791,6 +2791,9 @@
           "settings": {
             "heading": {
               "label": "Heading"
+            },
+            "link": {
+              "label": "Link"
             }
           }
         },
