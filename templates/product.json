@@ -45,6 +45,14 @@
             "page": ""
           }
         },
+        "99db6d81-c640-42cb-9648-edaea767183f": {
+          "type": "popup",
+          "settings": {
+            "text": "Sizing Guide",
+            "page": "",
+            "image": "shopify:\/\/shop_images\/snowboard_size.png"
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -107,6 +115,7 @@
         "variant_picker",
         "quantity_selector",
         "25034a75-31b3-445f-96ce-56638420dc7a",
+        "99db6d81-c640-42cb-9648-edaea767183f",
         "buy_buttons",
         "description",
         "collapsible-row-0",
