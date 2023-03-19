@@ -21,12 +21,19 @@
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'heading' -%}
-              <h2
+            {% unless block.settings.link == blank %}
+            <a href="{{ block.settings.link }}">
+              {% endunless %}
+            <h2
                 class="rich-text__heading rte inline-richtext {{ block.settings.heading_size }}"
                 {{ block.shopify_attributes }}
               >
                 {{ block.settings.heading }}
               </h2>
+            {% unless block.settings.link == blank %}
+            </a>
+            {% endunless %}
+            
             {%- when 'caption' -%}
               <p
                 class="rich-text__caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }}"
