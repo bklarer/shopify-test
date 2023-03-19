@@ -55,7 +55,8 @@
           "type": "heading",
           "settings": {
             "heading": "Talk about your brand",
-            "heading_size": "h1"
+            "heading_size": "h1",
+            "link": "https:\/\/google.com"
           }
         },
         "text": {
