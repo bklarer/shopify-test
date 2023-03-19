@@ -22,7 +22,7 @@
           {%- case block.type -%}
             {%- when 'heading' -%}
             {% unless block.settings.link == blank %}
-            <a href="{{ block.settings.link }}">
+            <a href="{{ block.settings.link }}" style="text-decoration: none;">
               {% endunless %}
             <h2
                 class="rich-text__heading rte inline-richtext {{ block.settings.heading_size }}"
