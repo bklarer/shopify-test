@@ -283,7 +283,8 @@
                 </div>
               </div>
             {%- when 'popup' -%}
-              <modal-opener
+            {% if block.settings.page != blank or block.settings.image != blank %}  
+            <modal-opener
                 class="product-popup-modal__opener no-js-hidden quick-add-hidden"
                 data-modal="#PopupModal-{{ block.id }}"
                 {{ block.shopify_attributes }}
@@ -297,6 +298,7 @@
                   {{ block.settings.text | default: block.settings.page.title }}
                 </button>
               </modal-opener>
+              {% endif %}
               <a href="{{ block.settings.page.url }}" class="product-popup-modal__button link no-js">
                 {{- block.settings.text -}}
               </a>
@@ -452,6 +454,7 @@
 
   {% assign popups = section.blocks | where: 'type', 'popup' %}
   {%- for block in popups -%}
+    {% if block.settings.page != blank or block.settings.image != blank %}
     <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
       <div
         role="dialog"
@@ -470,10 +473,16 @@
         </button>
         <div class="product-popup-modal__content-info">
           <h1 class="h2">{{ block.settings.page.title }}</h1>
-          {{ block.settings.page.content }}
+          {% if block.settings.page != blank %}
+            {{ block.settings.page.content }}
+          {% endif %}
+          {% if block.settings.image != blank %}
+          <img src="{{ block.settings.image | img_url: "600x" }}"/>
+          {% endif %}
         </div>
       </div>
     </modal-dialog>
+      {% endif %}
   {%- endfor -%}
 
   {%- if product.media.size > 0 -%}
