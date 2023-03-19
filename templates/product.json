@@ -50,7 +50,7 @@
           "settings": {
             "text": "Sizing Guide",
             "page": "",
-            "image": "shopify:\/\/shop_images\/snowboard_size.png"
+            "image": "{{ product.metafields.custom.size_guide.value }}"
           }
         },
         "buy_buttons": {
