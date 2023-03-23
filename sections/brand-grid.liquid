@@ -1,12 +1,48 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+{% assign brands = settings.brands | split: ',' %}
+
+<div class="grid-container">
+  {% for brand in brands %}
+    <div class="grid-item">
+      <a href="#">
+        <img src="{{ brand }}" alt="{{ brand }}">
+      </a>
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+    justify-items: center;
   }
+  .grid-item {
+    width: 100%;
+    text-align: center;
+  }
+  .grid-item img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+
+
+
+{% schema %}
+{
+  "name": "Brand Grid",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Brand Grid Settings"
+    },
+    {
+      "type": "text",
+      "id": "brands",
+      "label": "Brand Images",
+      "info": "Enter a comma-separated list of image URLs for each brand."
+    }
+  ]
+}
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
